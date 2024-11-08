@@ -1,0 +1,43 @@
+html {
+    font-family: "Helvetica", sans-serif;
+    }
+p{
+        line-height: 1.5;
+    }
+
+    body{
+        background-color: #eee;
+    }
+
+    h1{
+        color: darkblue;
+        font-size: 40px;
+        font-weight: normal;
+    }
+
+    h2{
+        color: salmon;
+    }
+
+    a {
+        color: palevioletred;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    header,footer {
+        background-color: white;
+        }
+
+        h1, h2 {
+            border: 2px solid salmon;
+        }
+        
+        li li {
+            background-color: #eef;
+            font-family: cursive;
+
+        }
+        

@@ -1,0 +1,13 @@
+body{
+    background-color: skyblue;
+}
+
+p{
+    color:chocolate;
+    background-color: #555;
+}
+img {
+    border: 10px solid #c06767;
+border-width: 0.5in;
+    transform-origin: center;
+  }
