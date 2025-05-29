@@ -1,0 +1,606 @@
+body {
+    margin: 0;
+    font-family: 'Spectral', serif;
+    color: white;
+    background-color: #000;
+    scroll-behavior: smooth;
+}
+
+/* Header Styling */
+.main-header {
+    background-color: white;
+    color: black;
+    padding: 0.5rem 1.7rem; /* Desktop padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning of logo on mobile */
+    min-height: 60px; /* Give it a minimum height */
+}
+
+/* New header container for flex control on desktop */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    font-family: 'Spectral SC', serif;
+    font-size: 1.5rem; /* Will be overridden for mobile */
+    margin: 0;
+    line-height: 1;
+    text-transform: lowercase;
+    letter-spacing: 0.06em;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 30px; /* Adjust as needed for your SVG logo size */
+    width: auto;
+}
+
+/* Desktop Navigation Links */
+.main-nav {
+    flex-grow: 1; /* Allows nav to take available space */
+    display: flex;
+    justify-content: center; /* Center the nav links */
+}
+
+.main-nav .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Horizontal on large screens */
+    gap: 0.9rem;
+}
+
+.main-nav .nav-links li {
+    margin: 0;
+}
+
+.main-nav .nav-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Spectral SC', serif;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for navigation links */
+.main-nav .nav-links a:hover {
+    color: hotpink;
+}
+
+/* Desktop Social Links and Language Switch */
+.social-desktop {
+    display: flex; /* Visible by default on desktop */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.6rem;
+    align-items: center; /* Align icons and text vertically */
+}
+
+.social-desktop li {
+    margin: 0;
+}
+
+.social-desktop a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.0rem; /* Icon size */
+    transition: color 0.3s ease;
+}
+
+.social-desktop a:hover {
+    color: hotpink;
+}
+
+.social-desktop .lang-switch-desktop {
+    font-size: 0.8rem; /* Match nav link size */
+    font-family: 'Spectral SC', serif;
+    text-transform: uppercase;
+    color: black; /* Or a darker shade */
+}
+
+/* Mobile-specific social/language container (hidden on desktop) */
+.social-and-lang-mobile {
+    display: none;
+}
+.social-mobile {
+    display: none; /* Will be flex on mobile */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 20px;
+}
+.social-mobile a {
+    font-size: 1.5rem; /* Larger icons for mobile */
+    color: black;
+    text-decoration: none;
+}
+.lang-switch-mobile {
+    display: none; /* Will be block on mobile */
+    font-size: 1rem;
+    font-family: 'Spectral SC', serif;
+    text-transform: uppercase;
+    color: black;
+    margin-top: 10px;
+}
+
+
+/* NEW CSS FOR MENU TOGGLE (HTML/CSS ONLY) */
+
+/* Hide the actual checkbox */
+.menu-toggle-checkbox {
+    position: absolute; /* Hide it completely */
+    opacity: 0;
+    pointer-events: none; /* Make it unclickable directly */
+    width: 0;
+    height: 0;
+}
+
+/* Style the label to look like the "MENU" button */
+.menu-toggle-label {
+    display: none; /* Hidden by default on desktop */
+    background: black; /* Black background for "MENU" button */
+    color: white; /* White text for "MENU" button */
+    border: none;
+    padding: 8px 15px; /* Adjust padding for button size */
+    font-size: 0.8rem;
+    font-family: 'Spectral SC', serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    font-weight: bold;
+    border-radius: 3px; /* Slightly rounded corners */
+    z-index: 20; /* Ensure it's above other elements */
+}
+
+
+/* Sections with background images */
+.meal {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 4.2rem 1.2rem;
+    position: relative;
+}
+
+#breakfast {
+    background-image: url("images/breakfast.jpg");
+}
+
+#lunch {
+    background-image: url("images/lunch.jpg");
+}
+
+#dinner {
+    background-image: url("images/dinner.jpg");
+}
+
+/* H2 Headings (e.g., "Breakfast") */
+.meal h2 {
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: hotpink;
+    padding: 0.5rem 1.2rem;
+    font-family: 'Spectral SC', serif;
+    text-transform: uppercase;
+    font-size: 1.9rem;
+    z-index: 3;
+    white-space: nowrap;
+}
+
+/* Container for tables to enable horizontal layout */
+.menu-tables-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2.2rem;
+    justify-content: center;
+    max-width: 800px;
+    margin: 1.2rem auto;
+    padding: 0 1.2rem;
+}
+
+/* Explicitly place the tables */
+.menu-tables-container table:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.menu-tables-container table:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.menu-tables-container table:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+table {
+    background-color: rgba(37, 35, 35, 0.7);
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+    padding: 0.6rem;
+    background: #292727;
+}
+
+td {
+    padding: 0.6rem 1.2rem;
+    border-bottom: none;
+    font-family: 'Spectral SC', serif;
+}
+
+/* Added rule for vertical border between columns */
+tbody tr td:nth-child(1) {
+    padding-right: 1.7rem;
+}
+
+tbody tr td:nth-child(2) {
+    border-left: none;
+    padding-left: 1.7rem;
+    text-align: right;
+}
+
+/* Staff section - MODIFIED */
+#staff {
+    background: linear-gradient(to right, #000, #3e1b4b, #000);
+    text-align: center;
+    padding: 3.2rem 1.2rem;
+    color: white;
+}
+
+#staff h2 {
+    margin-bottom: 2.2rem;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
+    gap: 3.2rem;
+    justify-content: center;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.staff-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    overflow: hidden;
+    padding-bottom: 1.7rem;
+    position: relative;
+}
+
+#staff img {
+    width: 100%;
+    height: 282px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    margin: 0;
+}
+
+#staff h3 {
+    font-family: 'Spectral SC', serif;
+    font-size: 1.5rem;
+    margin-top: -42px;
+    margin-bottom: 0.7rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 7px rgba(0,0,0,0.8);
+}
+
+#staff p {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-top: 0;
+    padding: 0 1.7rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contact section */
+#contact {
+    background-color: #eee;
+    color: black;
+    text-align: center;
+    padding: 3.2rem 1.2rem;
+}
+
+#contact address {
+    font-style: normal;
+    margin-bottom: 1.2rem;
+}
+
+iframe {
+    width: 97%;
+    max-width: 1020px;
+    height: 302px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Blog */
+#blog {
+    background: #fff;
+    color: black;
+    padding: 3.2rem 1.2rem;
+    text-align: center;
+}
+
+#blog h2 {
+    margin-bottom: 2.2rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    gap: 2.2rem;
+    justify-content: center;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.blog-grid article {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    align-items: start;
+    text-align: left;
+}
+
+#blog img {
+    width: 100%;
+    height: 202px;
+    object-fit: cover;
+    margin-bottom: 1.2rem;
+}
+
+#blog h3 {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-family: 'Spectral SC', serif;
+}
+
+#blog p {
+    margin-top: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background-color: #242424;
+    color: white;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.footer-nav-mobile {
+    display: none;
+}
+
+.footer-nav-mobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+.footer-nav-mobile a {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center horizontally */
+        padding: 0.7rem 1.2rem;
+        position: relative; /* Keep relative for potential absolute children */
+    }
+
+    .header-container {
+        flex-direction: column; /* Stack items vertically */
+        width: 100%;
+        align-items: center; /* Center content */
+    }
+
+    .logo-container {
+        font-size: 2.5rem; /* Larger logo on mobile as in images */
+        margin-bottom: 20px; /* Space between logo and menu button */
+    }
+
+    .logo-img {
+        height: 40px; /* Adjust logo size for mobile */
+    }
+
+    /* Hide desktop navigation and social links */
+    .main-nav {
+        display: none; /* Hidden by default on mobile */
+        width: 100%; /* Take full width when displayed */
+        flex-direction: column;
+        align-items: center; /* Center its contents */
+        margin-top: 20px; /* Space from menu button */
+    }
+    .main-nav .nav-links {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #eee; /* Separator for last link */
+        padding-bottom: 10px; /* Padding above social/lang */
+    }
+    .main-nav .nav-links li {
+        width: 100%;
+        text-align: center; /* Center the links */
+        margin: 5px 0; /* Vertical spacing */
+    }
+    .main-nav .nav-links a {
+        font-size: 1.2rem; /* Larger links for mobile */
+        padding: 8px 0;
+        display: block; /* Make clickable area larger */
+    }
+
+    .social-desktop {
+        display: none; /* Hide desktop social links */
+    }
+
+    /* Show mobile social and language in the dropdown */
+    .social-and-lang-mobile {
+        display: block; /* Show container */
+        width: 100%;
+        text-align: center;
+    }
+    .social-mobile {
+        display: flex; /* Show social icons */
+    }
+    .lang-switch-mobile {
+        display: block; /* Show language switch */
+    }
+
+    /* Show the menu toggle label on mobile */
+    .menu-toggle-label {
+        display: block; /* Show the "MENU" button on mobile */
+        /* Position it below the logo */
+        position: static; /* Remove absolute positioning */
+        margin-top: 0; /* Remove any previous margins */
+    }
+
+    /* The magic: when the checkbox is checked, display the navigation */
+    .menu-toggle-checkbox:checked ~ .main-nav {
+        display: flex; /* Display as flex column when checkbox is checked */
+    }
+
+    /* Existing mobile styles adjusted */
+    .meal h2 {
+        position: static;
+        display: block;
+        margin: 1.2rem auto;
+        text-align: center;
+        width: fit-content;
+        transform: none;
+        left: auto;
+        top: auto;
+        font-size: 2rem;
+        padding: 0.7rem 1.2rem;
+    }
+
+    .menu-tables-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.7rem;
+        padding: 0 0.7rem;
+    }
+
+    .menu-tables-container table:nth-child(1),
+    .menu-tables-container table:nth-child(2),
+    .menu-tables-container table:nth-child(3) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    table {
+        width: 97%;
+        margin: 0 auto;
+    }
+
+    #staff {
+        background: #131313;
+    }
+
+    .staff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .staff-grid article {
+        margin-bottom: 2.2rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        padding-bottom: 1.2rem;
+    }
+
+    #staff img {
+        height: 202px;
+        object-position: center top;
+    }
+
+    #staff h3,
+    #staff p {
+        margin-top: 0;
+        position: static;
+        text-shadow: none;
+    }
+
+    iframe {
+        width: 97%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        font-size: 2rem; /* Smaller logo for very small screens */
+    }
+    .logo-img {
+        height: 35px; /* Adjust logo size for very small screens */
+    }
+
+    .menu-toggle-label { /* Now this is your button */
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+
+    .main-nav .nav-links a { /* No active class, so target the links directly */
+        font-size: 1rem; /* Adjust dropdown link size for very small screens */
+    }
+
+    .social-mobile a {
+        font-size: 1.2rem; /* Adjust social icon size for very small screens */
+    }
+
+    .lang-switch-mobile {
+        font-size: 0.9rem;
+    }
+
+    .meal h2 {
+        font-size: 1.6rem;
+        padding: 0.5rem 1rem;
+    }
+
+    table {
+        font-size: 0.88rem;
+    }
+
+    #staff img {
+        max-width: 100%;
+        height: 152px;
+        object-position: center top;
+    }
+}
